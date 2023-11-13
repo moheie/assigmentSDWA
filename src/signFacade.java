@@ -1,6 +1,6 @@
 public class signFacade {
     SignUp signUp = new SignUp();
-    SingIn singIn = new SingIn();
+    SignIn singIn = new SignIn();
 
     public void runUp()
     {
