@@ -72,7 +72,7 @@ public class SignUpView extends View {
             String confirmPassword = scanner.next();
 
             if (password.equals(confirmPassword)) {
-                //create account
+            //    userDB.insertUser(username); mesh mafrood tkon hena cause it takes userdetials and the details aren
             }
         }  else {
             System.out.println("Username is already in use");

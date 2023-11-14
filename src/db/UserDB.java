@@ -1,10 +1,15 @@
 package db;
 
+import ui.View;
 import user.User;
+import user.UserDetails;
+import user.UserFactory;
+
 import java.util.HashMap;
 public class UserDB {
+    UserFactory factory;
     private static UserDB instance = null;
-    private HashMap<String, User> users = new HashMap<String, User>();
+    private HashMap<String,User> users = new HashMap<String, User>();
 
     public static UserDB getInstance() {
         if (instance == null) {
@@ -29,4 +34,9 @@ public class UserDB {
         User user = users.get(username);
         user.updateBalance(newBalance);
     } */
+
+    public void insertUser(UserDetails details, String username){
+        users.put(username,factory.createUser(username,details));
+
+    }
 }
