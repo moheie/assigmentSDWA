@@ -1,4 +1,6 @@
+package API;
 import java.util.Scanner;
+
 public class BankAPI extends API {
     private String accno;
     private String name;

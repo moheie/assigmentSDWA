@@ -1,3 +1,7 @@
+package API;
+
+import API.API;
+
 import java.util.Scanner;
 
 public class WalletAPI extends API {

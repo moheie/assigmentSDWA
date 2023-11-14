@@ -12,12 +12,12 @@ public class SignUp {
             {
                 case"1":
                 {
-                    //check with bank API
+                    //check with bank API.API
                     break;
                 }
                 case"2":
                 {
-                    //check with wallet API
+                    //check with wallet API.API
                     break;
                 }
                 case"exit":
