@@ -5,22 +5,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="d2e1fa97-b02d-4191-aadf-29b4d5443d68" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/User/Providers.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/User/User.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/User/userdetails.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/UserDB.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/API.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/API/API.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/BankAPI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/API/BankAPI.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/BankProviders.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/BankProviders.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/SignUp.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/SignUp.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/WalletAPI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/API/WalletAPI.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/WalletProviders.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/WalletProviders.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/User/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/User/User.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/UserDB.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/UserDB.java" afterDir="false" />
     </list>
-    <list id="6de1f7f0-646c-4ab8-8dc4-d3ef711d01f8" name="Changes by moham" comment="">
-      <change beforePath="$PROJECT_DIR$/src/BankAPI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/API/BankAPI.java" afterDir="false" />
-    </list>
+    <list id="6de1f7f0-646c-4ab8-8dc4-d3ef711d01f8" name="Changes by moham" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -36,14 +25,6 @@
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
-  </component>
-  <component name="LineStatusTrackerManager">
-    <file path="$PROJECT_DIR$/src/API/BankAPI.java">
-      <ranges>
-        <range start1="0" end1="0" start2="0" end2="1" changelist="d2e1fa97-b02d-4191-aadf-29b4d5443d68" />
-        <range start1="1" end1="1" start2="2" end2="3" changelist="6de1f7f0-646c-4ab8-8dc4-d3ef711d01f8" />
-      </ranges>
-    </file>
   </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />

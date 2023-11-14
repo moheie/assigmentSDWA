@@ -23,4 +23,9 @@ public class User {
     {
         return userdetails;
     }
+
+    public void updateBalance(long balance)
+    {
+        userdetails.setBalance(balance);
+    }
 }
