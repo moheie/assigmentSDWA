@@ -1,4 +1,4 @@
-package API;
+/* package API;
 
 import API.API;
 
@@ -17,7 +17,7 @@ public class WalletAPI extends API {
         transferFromWallet();
     }
 
-    /*public void openWallet() {
+    public void openWallet() {
         System.out.print("Enter Wallet ID: ");
         walletId = scanner.next();
         System.out.print("Enter Owner Name: ");
@@ -25,7 +25,7 @@ public class WalletAPI extends API {
         System.out.print("Enter Initial Wallet Balance: ");
         walletBalance = scanner.nextLong();
     }
-*/
+
     public void transferFromWallet() {
         long amount;
         System.out.print("Enter the amount you want to transfer from your wallet: ");
@@ -49,3 +49,4 @@ public class WalletAPI extends API {
     }
 
 }
+*/

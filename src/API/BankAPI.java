@@ -1,4 +1,4 @@
-package API;
+/* package API;
 import java.util.Scanner;
 
 public class BankAPI extends API {
@@ -16,7 +16,7 @@ public class BankAPI extends API {
         withdraw();
     }
 
-    /*public void openAccount() {
+    public void openAccount() {
         System.out.print("Enter Account No: ");
         accno = sc.next();
         System.out.print("Enter Account type: ");
@@ -25,20 +25,20 @@ public class BankAPI extends API {
         name = sc.next();
         System.out.print("Enter Balance: ");
         balance = sc.nextLong();
-    }*/
+    }
     public void showAccount() {
         System.out.println("Name of account holder: " + name);
         System.out.println("Account no.: " + accno);
         System.out.println("Account type: " + acc_type);
         System.out.println("Balance: " + balance);
     }
-/*
+
     public void deposit() {
         long amt;
         System.out.println("Enter the amount you want to deposit: ");
         amt = sc.nextLong();
         balance = balance + amt;
-    }*/
+    }
 
     public void transfer() {
         long amt;
@@ -59,4 +59,4 @@ public class BankAPI extends API {
         }
         return (false);
     }
-}
+} */
