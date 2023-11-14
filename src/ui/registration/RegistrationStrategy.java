@@ -26,7 +26,7 @@ public abstract class RegistrationStrategy {
             }
 
             try {
-                provider = providers[scanner.nextInt() + 1];
+                provider = providers[scanner.nextInt() - 1];
             } catch(Exception exception) {
                 System.out.println("Invalid provider. Please try again.");
             }
