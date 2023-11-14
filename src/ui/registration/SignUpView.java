@@ -59,7 +59,7 @@ public class SignUpView extends View {
         }
     }
 
-    // todo: please don't forget to add phone input here (and OTP verification if needed)
+    // todo: please don't forget to add phone input here (and OTP verification if needed) <-(moheie note: its in API)
     public void readUserInfo() {
         System.out.print("Enter your username: ");
         String username = scanner.next();

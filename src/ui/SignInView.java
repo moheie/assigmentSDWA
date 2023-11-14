@@ -11,6 +11,7 @@ public class SignInView extends View {
     public void display() {
         Scanner scanner = new Scanner(System.in);
         int option = 1;
+        System.out.println("Welcome to the Wallet User View!");
 
         do {
             System.out.print("Enter username: ");
@@ -37,5 +38,9 @@ public class SignInView extends View {
 
             return;
         } while (option != 0);
+    }
+    private void displayUserView(User user) {
+        View userView = user.getView();
+        userView.display();
     }
 }

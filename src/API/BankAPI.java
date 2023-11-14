@@ -1,4 +1,4 @@
-/* package API;
+package API;
 import java.util.Scanner;
 
 public class BankAPI extends API {
@@ -10,10 +10,16 @@ public class BankAPI extends API {
     Scanner sc = new Scanner(System.in);
 
     @Override
-    public void processTransaction() {
+    public void processTransaction(String to,long balance) {
         System.out.println("Processing bank transaction...");
         transfer();
-        withdraw();
+
+        // handel API URL
+        String apiUrl = "https://bankapi.com/transfer";
+        String method = "POST";
+        String requestBody = "from=" + accno + "&to=" + to + "&amount=" + balance;
+        String response = callExternalApi(apiUrl, method, requestBody);
+        System.out.println("Bank API Response: " + response);
     }
 
     public void openAccount() {
@@ -33,13 +39,6 @@ public class BankAPI extends API {
         System.out.println("Balance: " + balance);
     }
 
-    public void deposit() {
-        long amt;
-        System.out.println("Enter the amount you want to deposit: ");
-        amt = sc.nextLong();
-        balance = balance + amt;
-    }
-
     public void transfer() {
         long amt;
         System.out.println("Enter the amount you want to transfer: ");
@@ -51,6 +50,10 @@ public class BankAPI extends API {
             System.out.println("Your balance is less than " + amt + "\tTransaction failed...!!" );
         }
     }
+    public void verifyaccount(int user_id, int bank_account)
+    {
+
+    }
 
     public boolean search(String ac_no) {
         if (accno.equals(ac_no)) {
@@ -59,4 +62,4 @@ public class BankAPI extends API {
         }
         return (false);
     }
-} */
+}

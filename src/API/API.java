@@ -2,8 +2,22 @@ package API;
 
 public abstract class API {
 
-    public abstract void processTransaction(String to,long balance);
-    public abstract boolean withdraw(String from,long balance);
-    public abstract boolean check(String fullnumber);
+    public abstract void processTransaction(String to, long balance);
 
+    void send_otp(int mobile_number) {
+
+    }
+
+    void verify_otp(int otp) {
+
+    }
+
+    // handel API URL
+    protected String callExternalApi(String apiUrl, String method, String requestBody) {
+        // Simulate calling an external API and return a static response
+        System.out.println("Calling external API: " + apiUrl);
+        System.out.println("Method: " + method);
+        System.out.println("Request Body: " + requestBody);
+        return "API response";
+    }
 }

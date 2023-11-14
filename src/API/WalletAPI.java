@@ -1,4 +1,4 @@
-/* package API;
+ package API;
 
 import API.API;
 
@@ -12,9 +12,17 @@ public class WalletAPI extends API {
     Scanner scanner = new Scanner(System.in);
 
     @Override
-    public void processTransaction() {
+    public void processTransaction(String to,long balance) {
         System.out.println("Processing bank transaction...");
         transferFromWallet();
+
+
+        // handel API URL
+        String apiUrl = "https://walletapi.com/transfer";
+        String method = "POST";
+        String requestBody = "from=" + walletId + "&to=" + to + "&amount=" + walletBalance;
+        String response = callExternalApi(apiUrl, method, requestBody);
+        System.out.println("Wallet API Response: " + response);
     }
 
     public void openWallet() {
@@ -43,10 +51,13 @@ public class WalletAPI extends API {
         System.out.println("Wallet ID: " + walletId);
         System.out.println("Wallet Balance: " + walletBalance);
     }
+    public void  verifymobilenumber(int mobile_number)
+    {
+
+    }
 
     public boolean searchWallet(String searchId) {
         return walletId.equals(searchId);
     }
 
 }
-*/
