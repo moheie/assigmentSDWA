@@ -13,6 +13,7 @@ public class BankAPI extends API {
     public void processTransaction() {
         System.out.println("Processing bank transaction...");
         transfer();
+        withdraw();
     }
 
     /*public void openAccount() {
