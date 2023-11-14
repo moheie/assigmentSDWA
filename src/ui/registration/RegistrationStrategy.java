@@ -8,7 +8,7 @@ import java.util.Scanner;
 public abstract class RegistrationStrategy {
     protected Scanner scanner = new Scanner(System.in);
     protected Provider[] providers;
-    
+
     public Provider readProvider() {
         Provider provider = null;
 
@@ -26,7 +26,7 @@ public abstract class RegistrationStrategy {
             }
 
             try {
-                provider = providers[scanner.nextInt()];
+                provider = providers[scanner.nextInt() + 1];
             } catch(Exception exception) {
                 System.out.println("Invalid provider. Please try again.");
             }
