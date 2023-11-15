@@ -3,6 +3,9 @@ package ui.registration;
 import db.UserDB;
 import ui.View;
 import user.Provider;
+import user.User;
+import user.UserDetails;
+import user.UserType;
 
 import java.util.HashMap;
 import java.util.Scanner;
@@ -27,6 +30,7 @@ public class SignUpView extends View {
         int input;
 
         RegistrationStrategy strategy;
+        UserType type;
 
         while (true) {
             input = scanner.nextInt();
@@ -34,9 +38,11 @@ public class SignUpView extends View {
             switch (input) {
                 case 1:
                     strategy = new BankRegistrationStrategy();
+                    type = UserType.Bank;
                     break;
                 case 2:
                     strategy = new WalletRegistrationStrategy();
+                    type = UserType.Wallet;
                     break;
                 case 0:
                     return;
@@ -44,9 +50,6 @@ public class SignUpView extends View {
                     System.out.println("Invalid input. Please enter a valid option.");
                     continue;
             }
-
-            readUserInfo(); // todo: make sure this always collects a valid username & password before returning
-
             provider = strategy.readProvider();
             providerData = strategy.readProviderData();
 
@@ -54,28 +57,38 @@ public class SignUpView extends View {
             // if valid:
             // create user details & new user with UserFactory
             // maybe auto-login by calling user.getView().display();
-
+            // after checking asks user for username/pass/phone number
+            UserDetails details = readUserDetails(provider,providerData,type); // todo: make sure this always collects a valid username & password before returning
+            userDB.insertUser(details);
+            System.out.println("account Created");
             break;
         }
     }
 
     // todo: please don't forget to add phone input here (and OTP verification if needed) <-(moheie note: its in API)
-    public void readUserInfo() {
-        System.out.print("Enter your username: ");
-        String username = scanner.next();
-
-        if (!userDB.has(username)) { // in here we will check if the username exist
-            System.out.print("Enter your user password: ");
-            String password = scanner.next();
-
-            System.out.print("Confirm your password: ");
-            String confirmPassword = scanner.next();
-
-            if (password.equals(confirmPassword)) {
-            //    userDB.insertUser(username); mesh mafrood tkon hena cause it takes userdetials and the details aren
+    public UserDetails readUserDetails(Provider provider, HashMap<String,String> providerData,UserType type) {
+        UserDetails userDetails;
+        while(true) {
+            System.out.print("Enter your username: ");
+            String username = scanner.next();
+            if (!userDB.has(username)) { // in here we will check if the username exist
+                while(true) {
+                    System.out.print("Enter your user password: ");
+                    String password = scanner.next();
+                    System.out.print("Confirm your password: ");
+                    String confirmPassword = scanner.next();
+                    if (password.equals(confirmPassword)) {
+                        System.out.println("Enter phone number");
+                        String phone = scanner.next();
+                        userDetails = new UserDetails(username,password,phone,type,provider,providerData);
+                        return userDetails;
+                    } else {
+                        System.out.println("Passwords arent matching");
+                    }
+                }
+            } else {
+                System.out.println("Username is already in use");
             }
-        }  else {
-            System.out.println("Username is already in use");
         }
     }
 }

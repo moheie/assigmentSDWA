@@ -3,6 +3,7 @@ package user;
 import java.util.HashMap;
 
 public class UserDetails {
+    String username;
     private String password;
     private String phone;
     private UserType type;
@@ -18,7 +19,8 @@ public class UserDetails {
         balance = 0;
     }
 
-    public UserDetails(String password, String pin, String phone, UserType type, Provider provider, HashMap<String, String> providerData) {
+    public UserDetails(String username,String password, String phone, UserType type, Provider provider, HashMap<String, String> providerData) {
+        this.username = username;
         this.password = password;
         this.phone = phone;
         this.type = type;
@@ -26,6 +28,10 @@ public class UserDetails {
         this.providerData = providerData;
     }
 
+    public String getUsername()
+    {
+        return username;
+    }
     public String getPassword()
     {
         return password;

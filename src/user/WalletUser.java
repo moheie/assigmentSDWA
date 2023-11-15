@@ -4,8 +4,8 @@ import ui.View;
 import ui.WalletUserView;
 
 public class WalletUser extends User {
-    public WalletUser(String username, UserDetails userDetails) {
-        super(username, userDetails);
+    public WalletUser(UserDetails userDetails) {
+        super(userDetails);
     }
     
     @Override

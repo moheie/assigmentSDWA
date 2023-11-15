@@ -19,7 +19,9 @@ public class UserDB {
         return instance;
     }
 
-    private UserDB() {}
+    private UserDB() {
+        factory = new UserFactory();
+    }
     
     public User get(String username) {
         return users.get(username.toLowerCase());
@@ -35,8 +37,7 @@ public class UserDB {
         user.updateBalance(newBalance);
     } */
 
-    public void insertUser(UserDetails details, String username){
-        users.put(username,factory.createUser(username,details));
-
+    public void insertUser(UserDetails details){
+        users.put(details.getUsername(),factory.createUser(details));
     }
 }

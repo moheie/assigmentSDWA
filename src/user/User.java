@@ -3,23 +3,16 @@ package user;
 import ui.View;
 
 public abstract class User {
-    private String userName;
     private UserDetails userDetails;
 
     public User() {
-        userName = "";
         userDetails = new UserDetails();
     }
 
-    public User(String name, UserDetails details) {
-        this.userName = name;
+    public User(UserDetails details) {
         this.userDetails = details;
     }
 
-    public String getUserName()
-    {
-        return userName;
-    }
 
     public UserDetails getDetails()
     {
