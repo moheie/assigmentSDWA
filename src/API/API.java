@@ -14,7 +14,7 @@ public abstract class API {
 
     // handel API URL
     protected String callExternalApi(String apiUrl, String method, String requestBody) {
-        // Simulate calling an external API and return a static response
+
         System.out.println("Calling external API: " + apiUrl);
         System.out.println("Method: " + method);
         System.out.println("Request Body: " + requestBody);

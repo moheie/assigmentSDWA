@@ -1,12 +1,8 @@
 package API;
 import java.util.Scanner;
-
+import java.util.HashMap;
 public class BankAPI extends API {
-    private String accno;
-    private String name;
-    private String acc_type;
-    private long balance;
-
+    HashMap <String , Long>userBalance = new HashMap<String, Long>();
     Scanner sc = new Scanner(System.in);
 
     @Override
@@ -22,42 +18,25 @@ public class BankAPI extends API {
         System.out.println("Bank API Response: " + response);
     }
 
-    public void openAccount() {
-        System.out.print("Enter Account No: ");
-        accno = sc.next();
-        System.out.print("Enter Account type: ");
-        acc_type = sc.next();
-        System.out.print("Enter Name: ");
-        name = sc.next();
-        System.out.print("Enter Balance: ");
-        balance = sc.nextLong();
-    }
-    public void showAccount() {
-        System.out.println("Name of account holder: " + name);
-        System.out.println("Account no.: " + accno);
-        System.out.println("Account type: " + acc_type);
-        System.out.println("Balance: " + balance);
-    }
 
     public void transfer() {
         long amt;
         System.out.println("Enter the amount you want to transfer: ");
         amt = sc.nextLong();
-        if (balance >= amt) {
-            balance = balance - amt;
-            System.out.println("Balance after transfer: " + balance);
+        if (userBalance >= amt) {
+            userBalance = userBalance - amt;
+            System.out.println("Balance after transfer: " + userBalance);
         } else {
             System.out.println("Your balance is less than " + amt + "\tTransaction failed...!!" );
         }
     }
-    public void verifyaccount(int user_id, int bank_account)
+    public void verifyaccount(int mobilephone)
     {
 
     }
 
     public boolean search(String ac_no) {
         if (accno.equals(ac_no)) {
-            showAccount();
             return (true);
         }
         return (false);

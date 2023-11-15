@@ -46,11 +46,6 @@ public class WalletAPI extends API {
         }
     }
 
-    public void showWalletDetails() {
-        System.out.println("Owner of the wallet: " + ownerName);
-        System.out.println("Wallet ID: " + walletId);
-        System.out.println("Wallet Balance: " + walletBalance);
-    }
     public void  verifymobilenumber(int mobile_number)
     {
 
