@@ -4,11 +4,13 @@ import user.UserDetails;
 import util.Session;
 
 import java.util.Random;
+import java.util.Scanner;
+
 public class ElectricityBillPaymentStrategy implements BillPaymentStrategy {
     private long amount;
     Random random = new Random();
     int min = 100;
-    int max = 2000;
+    int max = 1500;
     int randomInRange = random.nextInt(max - min + 1) + min;
     public ElectricityBillPaymentStrategy() {
         this.amount = randomInRange;
@@ -16,7 +18,7 @@ public class ElectricityBillPaymentStrategy implements BillPaymentStrategy {
 
     @Override
     public void createBill() {
-        System.out.println("Electricity bill created. Details:");
+        System.out.println("Electricity bill created Details:");
         System.out.println("Billing Period: " + generateBillingPeriod());
         System.out.println("Units Consumed: " + generateRandomUnits() + " kWh");
         System.out.println("Service Provider: ABC Electric Company");
@@ -35,14 +37,19 @@ public class ElectricityBillPaymentStrategy implements BillPaymentStrategy {
         Session session =Session.getInstance();
         User user = session.getUser();
         UserDetails userDetails = user.getDetails();
-        System.out.println("Deducting Water bill amount: $" + amount);
-        if(true) {
+        System.out.println("do you want to proceed? (Y/N)");
+        Scanner scanner = new Scanner(System.in);
+        String choice = scanner.next();
+        if(choice.equals("y")||choice.equals("Y") ) {
+            System.out.println("Deducting Water bill amount: $" + amount);
+
             if(userDetails.getBalance()<amount){
                 System.out.println("You don't have this amount");
                 return;
             }
             long newBalance = userDetails.getBalance() - amount;
-            userDetails.setBalance(userDetails.getBalance()-newBalance);
+            userDetails.setBalance(newBalance);
         }
+        return;
     }
 }

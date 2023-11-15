@@ -5,6 +5,7 @@ import user.UserDetails;
 import util.Session;
 
 import java.util.Random;
+import java.util.Scanner;
 
 public class GasBillPaymentStrategy implements BillPaymentStrategy {
     private long amount;
@@ -18,7 +19,7 @@ public class GasBillPaymentStrategy implements BillPaymentStrategy {
 
     @Override
     public void createBill() {
-        System.out.println("Gas bill created. Details:");
+        System.out.println("Gas bill created Details:");
         System.out.println("Billing Period: " + generateBillingPeriod());
         System.out.println("Gas Consumption: " + generateRandomConsumption() + " cubic meters");
         System.out.println("Service Provider: XYZ Gas Company");
@@ -38,14 +39,18 @@ public class GasBillPaymentStrategy implements BillPaymentStrategy {
         Session session =Session.getInstance();
         User user = session.getUser();
         UserDetails userDetails = user.getDetails();
-        System.out.println("Deducting Water bill amount: $" + amount);
-        if(true) {
+        System.out.println("do you want to proceed? (Y/N)");
+        Scanner scanner = new Scanner(System.in);
+        String choice = scanner.next();
+        if(choice.equals("y")||choice.equals("Y") ) {
+            System.out.println("Deducting Water bill amount: $" + amount);
             if(userDetails.getBalance()<amount){
                 System.out.println("You don't have this amount");
                 return;
             }
             long newBalance = userDetails.getBalance() - amount;
-            userDetails.setBalance(userDetails.getBalance()-newBalance);
+            userDetails.setBalance(newBalance);
         }
+        return;
     }
 }
