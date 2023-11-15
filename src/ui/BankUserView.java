@@ -1,18 +1,7 @@
 package ui;
 
-import Bills.BillPaymentStrategy;
-import db.UserDB;
-import provider.client.ProviderClient;
-import provider.client.bank.BankProviderClient;
-import provider.client.bank.HSBCBankClient;
-import provider.client.bank.MISRBankClient;
-import provider.client.bank.NBEBankClient;
-import user.User;
-import user.UserDetails;
 import user.UserView;
-import util.Session;
 
-import java.util.HashMap;
 import java.util.Scanner;
 
 public class BankUserView extends UserView {

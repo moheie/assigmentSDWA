@@ -1,6 +1,6 @@
 package user;
 
-import Bills.BillView;
+import bills.BillView;
 import db.UserDB;
 import provider.client.ProviderClient;
 import ui.View;

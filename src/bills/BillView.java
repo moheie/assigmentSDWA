@@ -1,8 +1,6 @@
-package Bills;
+package bills;
 
 import ui.View;
-import user.User;
-import user.UserDetails;
 
 import java.util.Scanner;
 

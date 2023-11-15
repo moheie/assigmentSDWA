@@ -1,13 +1,16 @@
-package Bills;
+package bills;
 
+import provider.client.ProviderClient;
 import user.User;
-import user.UserDetails;
 import util.Session;
 
+import java.util.HashMap;
 import java.util.Random;
 import java.util.Scanner;
 
 public class GasBillPaymentStrategy implements BillPaymentStrategy {
+    private static final String GAS_COMPANY_BANK_ACCOUNT = "95348503484";
+    private Session session = Session.getInstance();
     private long amount;
     Random random = new Random();
     int min = 100;
@@ -33,23 +36,34 @@ public class GasBillPaymentStrategy implements BillPaymentStrategy {
 
         return "January 2023";
     }
+    private HashMap<String, String> generatePaymentParams() {
+        HashMap<String, String> companyTransferParams = new HashMap<>();
+
+        companyTransferParams.put("type", "Bank");
+        companyTransferParams.put("amount", Long.toString(amount));
+        companyTransferParams.put("account_number", GAS_COMPANY_BANK_ACCOUNT);
+
+        return companyTransferParams;
+    }
     @Override
     public void deductFromAccount() {
-        Session session =Session.getInstance();
         User user = session.getUser();
-        UserDetails userDetails = user.getDetails();
-        System.out.println("do you want to proceed? (Y/N)");
+
+        System.out.println("Do you want to proceed? (Y/N)");
+
         Scanner scanner = new Scanner(System.in);
         String choice = scanner.next();
-        if(choice.equals("y")||choice.equals("Y") ) {
-            System.out.println("Deducting Water bill amount: $" + amount);
-            if(userDetails.getBalance()<amount){
-                System.out.println("You don't have this amount");
-                return;
+
+        if (choice.equalsIgnoreCase("y")) {
+            System.out.println("Deducting gas bill amount: $" + amount);
+
+            ProviderClient providerClient = user.getProviderClient();
+            ProviderClient.TransferStatus status = providerClient.transfer(user.getDetails(), generatePaymentParams());
+
+            switch (status) {
+                case Successful -> System.out.printf("Successfully paid gas bill of $%d%n", amount);
+                case InsufficientFunds -> System.out.println("Insufficient funds. Payment failed.");
             }
-            long newBalance = userDetails.getBalance() - amount;
-            userDetails.setBalance(newBalance);
         }
-        return;
     }
 }
