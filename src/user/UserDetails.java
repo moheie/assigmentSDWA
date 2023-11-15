@@ -1,5 +1,7 @@
 package user;
 
+import provider.Provider;
+
 import java.util.HashMap;
 
 public class UserDetails {
@@ -15,11 +17,10 @@ public class UserDetails {
         password = "";
         phone = "";
         type = UserType.Wallet;
-        providerData.put("pin", "");
         balance = 0;
     }
 
-    public UserDetails(String username,String password, String phone, UserType type, Provider provider, HashMap<String, String> providerData) {
+    public UserDetails(String username, String password, String phone, UserType type, Provider provider, HashMap<String, String> providerData) {
         this.username = username;
         this.password = password;
         this.phone = phone;
@@ -32,9 +33,18 @@ public class UserDetails {
     {
         return username;
     }
+
+    public void setUsername(String username) {
+        this.username = username;
+    }
+
     public String getPassword()
     {
         return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
     }
 
     public String getPhone()
@@ -42,9 +52,16 @@ public class UserDetails {
         return phone;
     }
 
-    public UserType getType()
-    {
+    public void setPhone(String phone) {
+        this.phone = phone;
+    }
+
+    public UserType getType() {
         return type;
+    }
+
+    public void setType(UserType type) {
+        this.type = type;
     }
 
     public Provider getProvider()
@@ -52,8 +69,16 @@ public class UserDetails {
         return provider;
     }
 
+    public void setProvider(Provider provider) {
+        this.provider = provider;
+    }
+
     public HashMap<String, String> getProviderData() {
         return providerData;
+    }
+
+    public void setProviderData(HashMap<String, String> providerData) {
+        this.providerData = providerData;
     }
 
     public long getBalance()

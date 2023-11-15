@@ -1,6 +1,4 @@
-package user;
-
-import user.Provider;
+package provider;
 
 public enum BankProvider implements Provider {
     HSBC("HSBC"),

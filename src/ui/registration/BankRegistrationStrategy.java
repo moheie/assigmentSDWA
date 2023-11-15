@@ -1,12 +1,17 @@
 package ui.registration;
 
-import user.BankProvider;
-import user.Provider;
+import provider.BankProvider;
+import provider.Provider;
+import provider.client.ProviderClient;
+import provider.client.ProviderClientFactory;
+import provider.client.bank.BankClientFactory;
 
 import java.util.HashMap;
 import java.util.Scanner;
 
 public class BankRegistrationStrategy extends RegistrationStrategy {
+    BankClientFactory clientFactory = new BankClientFactory();
+
     public BankRegistrationStrategy() {
         providers = BankProvider.values();
     }
@@ -28,9 +33,14 @@ public class BankRegistrationStrategy extends RegistrationStrategy {
 
         securityCode = scanner.next();
 
-        providerData.put("accountNumber", accountNumber);
-        providerData.put("securityCode", securityCode);
+        providerData.put("account_number", accountNumber);
+        providerData.put("security_code", securityCode);
 
         return providerData;
+    }
+
+    @Override
+    public ProviderClient getProviderClient(Provider provider) {
+        return clientFactory.createClient(provider);
     }
 }

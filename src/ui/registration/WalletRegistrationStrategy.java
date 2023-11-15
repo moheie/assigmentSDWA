@@ -1,13 +1,17 @@
 package ui.registration;
 
-import user.BankProvider;
-import user.WalletProvider;
-import user.Provider;
+import provider.Provider;
+import provider.WalletProvider;
+import provider.client.ProviderClient;
+import provider.client.ProviderClientFactory;
+import provider.client.wallet.WalletClientFactory;
 
 import java.util.HashMap;
 import java.util.Scanner;
 
 public class WalletRegistrationStrategy extends RegistrationStrategy {
+    private WalletClientFactory clientFactory = new WalletClientFactory();
+
     public WalletRegistrationStrategy() {
         providers = WalletProvider.values();
     }
@@ -23,8 +27,13 @@ public class WalletRegistrationStrategy extends RegistrationStrategy {
 
         pinCode = scanner.next();
 
-        providerData.put("pinCode", pinCode);
+        providerData.put("pin_code", pinCode);
 
         return providerData;
+    }
+
+    @Override
+    public ProviderClient getProviderClient(Provider provider) {
+        return clientFactory.createClient(provider);
     }
 }

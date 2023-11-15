@@ -1,8 +1,11 @@
-package API;
+package provider.client.bank;
+import provider.client.ProviderClient;
+
+import java.net.URL;
 import java.util.Scanner;
 import java.util.HashMap;
-public class BankAPI extends API {
-    HashMap <String , Long>userBalance = new HashMap<String, Long>();
+public abstract class BankProviderClient extends ProviderClient {
+    /* HashMap <String , Long>userBalance = new HashMap<String, Long>();
     Scanner sc = new Scanner(System.in);
 
     @Override
@@ -40,5 +43,5 @@ public class BankAPI extends API {
             return (true);
         }
         return (false);
-    }
+    } */
 }

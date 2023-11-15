@@ -7,9 +7,9 @@ import user.UserFactory;
 
 import java.util.HashMap;
 public class UserDB {
-    UserFactory factory;
     private static UserDB instance = null;
-    private HashMap<String,User> users = new HashMap<String, User>();
+    private UserFactory factory = new UserFactory();
+    private HashMap<String, User> users = new HashMap<String, User>();
 
     public static UserDB getInstance() {
         if (instance == null) {
@@ -19,10 +19,6 @@ public class UserDB {
         return instance;
     }
 
-    private UserDB() {
-        factory = new UserFactory();
-    }
-    
     public User get(String username) {
         return users.get(username.toLowerCase());
     }
@@ -31,13 +27,18 @@ public class UserDB {
         return get(username) != null;
     }
 
+    public User add(UserDetails details){
+        String username = details.getUsername().toLowerCase();
+        User user = factory.createUser(details);
+
+        users.put(username, user);
+
+        return user;
+    }
+
     /* public void updateBalance(long newBalance, String username)
     {
         User user = users.get(username);
         user.updateBalance(newBalance);
     } */
-
-    public void insertUser(UserDetails details){
-        users.put(details.getUsername(),factory.createUser(details));
-    }
 }

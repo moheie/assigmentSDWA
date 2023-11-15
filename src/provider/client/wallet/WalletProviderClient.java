@@ -1,11 +1,11 @@
- package API;
+ package provider.client.wallet;
 
-import API.API;
+import provider.client.ProviderClient;
 
 import java.util.Scanner;
 
-public class WalletAPI extends API {
-    private String walletId;
+public abstract class WalletProviderClient extends ProviderClient {
+    /* private String walletId;
     private String ownerName;
     private long walletBalance;
 
@@ -53,6 +53,5 @@ public class WalletAPI extends API {
 
     public boolean searchWallet(String searchId) {
         return walletId.equals(searchId);
-    }
-
+    } */
 }
