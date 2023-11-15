@@ -1,5 +1,6 @@
 package Bills;
 
-public interface BillPaymentStrategy {
-    void processBillPayment(long amount);
+public abstract interface BillPaymentStrategy {
+    void createBill();
+    void deductFromAccount();
 }

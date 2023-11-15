@@ -21,4 +21,8 @@ public class NBEBankClient extends BankProviderClient {
 
         return response.get("valid").equals("yes");
     }
+
+    public boolean transfer(){
+        return true;
+    }
 }

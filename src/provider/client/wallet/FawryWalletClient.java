@@ -21,4 +21,7 @@ public class FawryWalletClient extends WalletProviderClient {
 
         return response.get("valid").equals("yes");
     }
+    public boolean transfer(){
+        return true;
+    }
 }

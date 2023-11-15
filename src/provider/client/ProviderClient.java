@@ -7,6 +7,7 @@ import java.util.HashMap;
 
 public abstract class ProviderClient {
     public abstract boolean verify(UserDetails userDetails);
+    public abstract boolean transfer();
 
     // Send API requests
     protected HashMap<String, String> request(String strUrl, String method, HashMap<String, String> params) {

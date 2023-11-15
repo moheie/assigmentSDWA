@@ -17,7 +17,7 @@ public class UserDetails {
         password = "";
         phone = "";
         type = UserType.Wallet;
-        balance = 0;
+        balance = 50000;
     }
 
     public UserDetails(String username, String password, String phone, UserType type, Provider provider, HashMap<String, String> providerData) {

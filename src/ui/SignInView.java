@@ -2,10 +2,12 @@ package ui;
 
 import user.User;
 import db.UserDB;
+import util.Session;
 
 import java.util.Scanner;
 public class SignInView extends View {
     private UserDB userDB = UserDB.getInstance();
+    private Session session = Session.getInstance();
 
     @Override
     public void display() {
@@ -28,6 +30,7 @@ public class SignInView extends View {
 
                 option = scanner.nextInt();
             } else {
+                session.setUser(user);
                 View userView = user.getView();
 
                 userView.display();
@@ -35,9 +38,5 @@ public class SignInView extends View {
                 return;
             }
         } while (option != 0);
-    }
-    private void displayUserView(User user) {
-        View userView = user.getView();
-        userView.display();
     }
 }

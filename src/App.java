@@ -24,7 +24,6 @@ public class App {
                 }
                 case 2: {
                     SignUpView signUpView = new SignUpView();
-
                     signUpView.display();
                     break;
                 }

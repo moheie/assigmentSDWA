@@ -1,5 +1,6 @@
 package user;
 
+import provider.client.ProviderClient;
 import ui.View;
 
 public abstract class User {
@@ -31,4 +32,5 @@ public abstract class User {
 
         return password.equals(inputPassword);
     }
+    public abstract ProviderClient getProviderClient();
 }
