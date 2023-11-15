@@ -12,26 +12,17 @@ import java.util.Scanner;
 public class SignUpView extends View {
     private final UserDB userDB = UserDB.getInstance();
     Scanner scanner = new Scanner(System.in);
-
-    String username;
-    String password;
-    String phone;
     Provider provider;
     HashMap<String, String> providerData;
-
     @Override
     public void display() {
         System.out.println("Please specify how you'd like to register your account:");
-
         System.out.println("1. Bank Account");
         System.out.println("2. E-Wallet");
         System.out.println("0. Exit");
-
         int input;
-
         RegistrationStrategy strategy;
         UserType type;
-
         while (true) {
             input = scanner.nextInt();
 
@@ -52,7 +43,6 @@ public class SignUpView extends View {
             }
             provider = strategy.readProvider();
             providerData = strategy.readProviderData();
-
             // check if provider data is valid by calling the appropriate API
             // if valid:
             // create user details & new user with UserFactory
