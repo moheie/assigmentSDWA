@@ -35,17 +35,4 @@ public class UserDB {
 
         return user;
     }
-
-    public long getBalance(String username) {
-        User user = get(username);
-        if (user != null) {
-            return user.getDetails().getBalance();
-        }
-        return 0; // or throw an exception indicating user not found
-    }
-    /* public void updateBalance(long newBalance, String username)
-    {
-        User user = users.get(username);
-        user.updateBalance(newBalance);
-    } */
 }

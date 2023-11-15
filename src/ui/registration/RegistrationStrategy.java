@@ -3,6 +3,7 @@ package ui.registration;
 import provider.Provider;
 import provider.client.ProviderClient;
 import provider.client.ProviderClientFactory;
+import user.UserDetails;
 
 import java.util.HashMap;
 import java.util.Scanner;
@@ -37,7 +38,7 @@ public abstract class RegistrationStrategy {
         return provider;
     }
 
-    public abstract HashMap<String, String> readProviderData();
+    public abstract HashMap<String, String> readProviderData(UserDetails userDetails);
 
     public abstract ProviderClient getProviderClient(Provider provider);
 }

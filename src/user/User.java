@@ -15,17 +15,17 @@ public abstract class User {
     }
 
 
-    public UserDetails getDetails()
-    {
+    public UserDetails getDetails() {
         return userDetails;
+    }
+
+    public long getBalance() {
+        ProviderClient client = getProviderClient();
+
+        return client.getBalance(userDetails);
     }
     
     public abstract View getView();
-
-    public void updateBalance(long balance)
-    {
-        userDetails.setBalance(balance);
-    }
 
     public boolean checkPassword(String inputPassword) {
         String password = getDetails().getPassword();

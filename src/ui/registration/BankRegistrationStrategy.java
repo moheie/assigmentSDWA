@@ -5,6 +5,7 @@ import provider.Provider;
 import provider.client.ProviderClient;
 import provider.client.ProviderClientFactory;
 import provider.client.bank.BankClientFactory;
+import user.UserDetails;
 
 import java.util.HashMap;
 import java.util.Scanner;
@@ -17,7 +18,7 @@ public class BankRegistrationStrategy extends RegistrationStrategy {
     }
 
     @Override
-    public HashMap<String, String> readProviderData() {
+    public HashMap<String, String> readProviderData(UserDetails userDetails) {
         HashMap<String, String> providerData = new HashMap<>();
 
         Scanner scanner = new Scanner(System.in);
@@ -26,15 +27,15 @@ public class BankRegistrationStrategy extends RegistrationStrategy {
         String securityCode;
 
         System.out.print("Please enter your bank account number: ");
-
         accountNumber = scanner.next();
 
         System.out.print("Please enter your bank account security code: ");
-
         securityCode = scanner.next();
 
         providerData.put("account_number", accountNumber);
         providerData.put("security_code", securityCode);
+
+        userDetails.setProviderData(providerData);
 
         return providerData;
     }

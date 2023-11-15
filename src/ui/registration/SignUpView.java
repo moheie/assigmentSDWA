@@ -107,15 +107,16 @@ public class SignUpView extends View {
                     continue;
             }
 
-            Provider provider = strategy.readProvider();
-
-            userDetails.setProvider(provider);
-            userDetails.setProviderData(strategy.readProviderData());
-
             System.out.print("Enter your phone number: ");
             String phone = scanner.next();
 
             userDetails.setPhone(phone);
+
+            Provider provider = strategy.readProvider();
+
+            userDetails.setProvider(provider);
+
+            strategy.readProviderData(userDetails);
 
             // check if provider data is valid by calling the appropriate API
             ProviderClient providerClient = strategy.getProviderClient(provider);

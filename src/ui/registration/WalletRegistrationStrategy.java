@@ -5,6 +5,7 @@ import provider.WalletProvider;
 import provider.client.ProviderClient;
 import provider.client.ProviderClientFactory;
 import provider.client.wallet.WalletClientFactory;
+import user.UserDetails;
 
 import java.util.HashMap;
 import java.util.Scanner;
@@ -17,7 +18,7 @@ public class WalletRegistrationStrategy extends RegistrationStrategy {
     }
 
     @Override
-    public HashMap<String, String> readProviderData() {
+    public HashMap<String, String> readProviderData(UserDetails userDetails) {
         HashMap<String, String> providerData = new HashMap<>();
 
         Scanner scanner = new Scanner(System.in);
@@ -27,7 +28,10 @@ public class WalletRegistrationStrategy extends RegistrationStrategy {
 
         pinCode = scanner.next();
 
+        providerData.put("account_number", userDetails.getPhone());
         providerData.put("pin_code", pinCode);
+
+        userDetails.setProviderData(providerData);
 
         return providerData;
     }

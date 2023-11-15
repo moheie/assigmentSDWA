@@ -12,12 +12,21 @@ import user.UserDetails;
 import user.UserView;
 import util.Session;
 
+import java.util.HashMap;
 import java.util.Scanner;
 
 public class BankUserView extends UserView {
     public void transferToBank(){
-        ProviderClient providerClient = session.getUser().getProviderClient();
-        providerClient.transfer();
+        System.out.print("Enter the account number of the bank account you want to send the money to: ");
+        String accountNumber = scanner.next();
+
+        System.out.print("Enter the amount of money you want to send: ");
+        long amount = scanner.nextLong();
+        boolean success = transferTo(accountNumber, amount, "Bank");
+
+        if (success) {
+            System.out.printf("Successfully transferred $%d to %s.%n", amount, accountNumber);
+        }
     }
     @Override
     public void display() {

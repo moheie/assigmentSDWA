@@ -8,20 +8,44 @@ public class FawryWalletClient extends WalletProviderClient {
     private String apiURL = "https://fawry.com/api";
 
     @Override
-    public boolean verify(UserDetails userDetails) {
+    protected HashMap<String, String> initializeRequestParams(UserDetails userDetails) {
         HashMap<String, String> requestParams = new HashMap<>();
         HashMap<String, String> providerData = userDetails.getProviderData();
 
-        requestParams.put("phone_number", userDetails.getPhone());
-        requestParams.put("pin_code", providerData.get("pin_code"));
+        requestParams.put("account_number", providerData.get("account_number"));
+        requestParams.put("security_code", providerData.get("security_code"));
 
+        return requestParams;
+    }
+
+    @Override
+    public long getBalance(UserDetails userDetails) {
+        String url = apiURL + "/balance";
+
+        HashMap<String, String> requestParams = initializeRequestParams(userDetails);
+        HashMap<String, String> response = request(url, "GET", requestParams);
+
+        return Long.parseLong(response.get("balance"));
+    }
+
+    @Override
+    public boolean verify(UserDetails userDetails) {
         String url = apiURL + "/verify";
 
+        HashMap<String, String> requestParams = initializeRequestParams(userDetails);
         HashMap<String, String> response = request(url, "POST", requestParams);
 
         return response.get("valid").equals("yes");
     }
-    public boolean transfer(){
-        return true;
+
+    public TransferStatus transfer(UserDetails userDetails, HashMap<String, String> targetParameters) {
+        String url = apiURL + "/transfer";
+
+        HashMap<String, String> requestParams = initializeRequestParams(userDetails);
+        requestParams.putAll(targetParameters);
+
+        HashMap<String, String> response = request(url, "POST", requestParams);
+
+        return TransferStatus.valueOf(response.get("status"));
     }
 }

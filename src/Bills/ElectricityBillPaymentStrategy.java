@@ -33,7 +33,6 @@ public class ElectricityBillPaymentStrategy implements BillPaymentStrategy {
     }
     @Override
     public void deductFromAccount() {
-
         Session session =Session.getInstance();
         User user = session.getUser();
         UserDetails userDetails = user.getDetails();

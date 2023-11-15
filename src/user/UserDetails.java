@@ -11,13 +11,11 @@ public class UserDetails {
     private UserType type;
     private Provider provider;
     private HashMap<String, String> providerData = new HashMap<>();
-    private long balance;
 
     public UserDetails() {
         password = "";
         phone = "";
         type = UserType.Wallet;
-        balance = 50000;
     }
 
     public UserDetails(String username, String password, String phone, UserType type, Provider provider, HashMap<String, String> providerData) {
@@ -79,15 +77,5 @@ public class UserDetails {
 
     public void setProviderData(HashMap<String, String> providerData) {
         this.providerData = providerData;
-    }
-
-    public long getBalance()
-    {
-        return balance;
-    }
-
-    public void setBalance(long balance)
-    {
-        this.balance = balance;
     }
 }
